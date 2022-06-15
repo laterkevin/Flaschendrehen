@@ -2,7 +2,9 @@ package de.syntax_institut.flaschendrehen
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import kotlin.random.Random
 
@@ -45,8 +47,14 @@ class MainActivity : AppCompatActivity() {
 
         // Hole die Views
         // TODO Schreibe hier deinen Code
-
+        val flasche = findViewById<ImageView>(R.id.flasche)
+        val textView = findViewById<TextView>(R.id.herzGefunden)
+        val button = findViewById<Button>(R.id.button_drehen)
         // Der Button bekommt einen onClickListener
         // TODO Schreibe hier deinen Code
+        button.setOnClickListener {
+        val rndNumber = (0..23).random()
+            flasche.rotation = rndNumber.toFloat()
+        }
     }
 }
