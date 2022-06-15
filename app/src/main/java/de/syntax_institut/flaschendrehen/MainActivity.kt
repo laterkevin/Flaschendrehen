@@ -48,13 +48,22 @@ class MainActivity : AppCompatActivity() {
         // Hole die Views
         // TODO Schreibe hier deinen Code
         val flasche = findViewById<ImageView>(R.id.flasche)
-        val textView = findViewById<TextView>(R.id.herzGefunden)
-        val button = findViewById<Button>(R.id.button_drehen)
+        val herzGefunden = findViewById<TextView>(R.id.herzGefunden)
+        val button_drehen = findViewById<Button>(R.id.button_drehen)
         // Der Button bekommt einen onClickListener
         // TODO Schreibe hier deinen Code
-        button.setOnClickListener {
-        val rndNumber = (0..23).random()
-            flasche.rotation = rndNumber.toFloat()
+        button_drehen.setOnClickListener {
+            val rndNumber = (0..23).random()
+            val bottleAngle: Float = angles.get(rndNumber)
+            flasche.rotation = bottleAngle
+        if (flasche.rotation == heartAngle) {
+            val gefunden = "Du hast das Herz gefunden"
+            herzGefunden.text = gefunden
+        for (i in 0..7) {
+            hearts[i].visibility = View.VISIBLE
+            }
+          }
         }
     }
 }
+
